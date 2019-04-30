@@ -1,7 +1,7 @@
 # Личный проект «Что посмотреть» [![Build status][travis-image]][travis-url]
 
 * Студент: [Anton Lapshin](https://up.htmlacademy.ru/react/1/user/15565).
-* Наставник: `Неизвестно`.
+* Наставник: [Александр Погорелов](https://htmlacademy.ru/profile/id1031283).
 
 ---
 
