@@ -1,6 +1,7 @@
 import React from "react";
+import PropTypes from 'prop-types';
 
-const Main = () => (
+const Main = (movieTitles) => (
   <React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -134,81 +135,18 @@ const Main = () => (
         </ul>
 
         <div className="catalog__movies-list">
-          <article className="small-movie-card catalog__movies-card">
-            <button className="small-movie-card__play-btn" type="button">
-              Play
-            </button>
-            <div className="small-movie-card__image">
-              <img
-                src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg"
-                alt="Fantastic Beasts: The Crimes of Grindelwald"
-                width="280"
-                height="175"
-              />
-            </div>
-            <h3 className="small-movie-card__title">
-              <a className="small-movie-card__link" href="movie-page.html">
-                Fantastic Beasts: The Crimes of Grindelwald
-              </a>
-            </h3>
-          </article>
-
-          <article className="small-movie-card catalog__movies-card">
-            <button className="small-movie-card__play-btn" type="button">
-              Play
-            </button>
-            <div className="small-movie-card__image">
-              <img
-                src="img/bohemian-rhapsody.jpg"
-                alt="Bohemian Rhapsody"
-                width="280"
-                height="175"
-              />
-            </div>
-            <h3 className="small-movie-card__title">
-              <a className="small-movie-card__link" href="movie-page.html">
-                Bohemian Rhapsody
-              </a>
-            </h3>
-          </article>
-
-          <article className="small-movie-card catalog__movies-card">
-            <button className="small-movie-card__play-btn" type="button">
-              Play
-            </button>
-            <div className="small-movie-card__image">
-              <img
-                src="img/macbeth.jpg"
-                alt="Macbeth"
-                width="280"
-                height="175"
-              />
-            </div>
-            <h3 className="small-movie-card__title">
-              <a className="small-movie-card__link" href="movie-page.html">
-                Macbeth
-              </a>
-            </h3>
-          </article>
-
-          <article className="small-movie-card catalog__movies-card">
-            <button className="small-movie-card__play-btn" type="button">
-              Play
-            </button>
-            <div className="small-movie-card__image">
-              <img
-                src="img/aviator.jpg"
-                alt="Aviator"
-                width="280"
-                height="175"
-              />
-            </div>
-            <h3 className="small-movie-card__title">
-              <a className="small-movie-card__link" href="movie-page.html">
-                Aviator
-              </a>
-            </h3>
-          </article>
+          {movieTitles.movieTitles.map((movieTitle, i) => {
+            return (<article className="small-movie-card catalog__movies-card" key = {i}>
+              <button className="small-movie-card__play-btn" type="button">Play</button>
+              <div className="small-movie-card__image">
+                <img src="img/bohemian-rhapsody.jpg" alt="{movieTitle}" width="280" height="175" />
+              </div>
+              <h3 className="small-movie-card__title">
+                <a className="small-movie-card__link" href="movie-page.html">{movieTitle}</a>
+              </h3>
+            </article>);
+          })
+          }
 
           <article className="small-movie-card catalog__movies-card">
             <button className="small-movie-card__play-btn" type="button">
@@ -538,5 +476,9 @@ const Main = () => (
     </div>
   </React.Fragment>
 );
+
+Main.propTypes = {
+  movieTitles: PropTypes.array.isRequired,
+};
 
 export default Main;
