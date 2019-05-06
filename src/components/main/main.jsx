@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from 'prop-types';
 
-const Main = (movieTitles) => (
+const Main = ({movieTitles}) => (
   <React.Fragment>
     <section className="movie-card">
       <div className="movie-card__bg">
@@ -135,8 +135,8 @@ const Main = (movieTitles) => (
         </ul>
 
         <div className="catalog__movies-list">
-          {movieTitles.movieTitles.map((movieTitle, i) => {
-            return (<article className="small-movie-card catalog__movies-card" key = {i}>
+          {movieTitles.map((movieTitle, i) => (
+            <article className="small-movie-card catalog__movies-card" key = {i}>
               <button className="small-movie-card__play-btn" type="button">Play</button>
               <div className="small-movie-card__image">
                 <img src="img/bohemian-rhapsody.jpg" alt="{movieTitle}" width="280" height="175" />
@@ -144,8 +144,7 @@ const Main = (movieTitles) => (
               <h3 className="small-movie-card__title">
                 <a className="small-movie-card__link" href="movie-page.html">{movieTitle}</a>
               </h3>
-            </article>);
-          })
+            </article>))
           }
 
           <article className="small-movie-card catalog__movies-card">
