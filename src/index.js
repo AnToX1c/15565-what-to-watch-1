@@ -3,7 +3,8 @@ import ReactDOM from "react-dom";
 import Main from "./components/main/main.jsx";
 
 const init = () => {
-  ReactDOM.render(<Main />, document.getElementById(`root`));
+  const movieTitles = [`Fantastic Beasts`, `Bohemian Rhapsody`, `Macbeth`, `Aviator`];
+  ReactDOM.render(<Main movieTitles = {movieTitles}/>, document.getElementById(`root`));
 };
 
 init();
