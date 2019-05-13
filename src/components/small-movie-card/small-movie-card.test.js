@@ -10,7 +10,7 @@ const mock = {
 
 it(`SmallMovieCard page correctly renders`, () => {
   const tree = renderer
-    .create(<SmallMovieCard film={mock} onMouseOver={jest.fn()}/>)
+    .create(<SmallMovieCard film={mock} onClick={jest.fn()}/>)
     .toJSON();
 
   expect(tree).toMatchSnapshot();

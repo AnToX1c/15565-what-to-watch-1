@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const SmallMovieCard = ({film, onMouseOver}) => (
-  <article className="small-movie-card catalog__movies-card" onMouseEnter={() => onMouseOver(film.id)}>
-    <button className="small-movie-card__play-btn" type="button">Play</button>
+const SmallMovieCard = ({film, onClick}) => (
+  <article className="small-movie-card catalog__movies-card">
+    <button className="small-movie-card__play-btn" type="button" onClick={() => onClick(film.id)}>Play</button>
     <div className="small-movie-card__image">
       <img src={film.imgsrc} alt={film.title} width="280" height="175" />
     </div>
@@ -19,7 +19,7 @@ SmallMovieCard.propTypes = {
     title: PropTypes.string.isRequired,
     imgsrc: PropTypes.string.isRequired,
   }).isRequired,
-  onMouseOver: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default React.memo(SmallMovieCard);

@@ -13,15 +13,13 @@ class MovieLists extends Component {
 
   render() {
     const {films} = this.props;
-    return <React.Fragment>
-      {films.map((film, i) => (
-        <SmallMovieCard film={film} onMouseOver={(id) => {
-          this.setState({
-            activeFilmId: id,
-          });
-        }} key={i}/>
-      ))}
-    </React.Fragment>;
+    return films.map((film, i) => (
+      <SmallMovieCard film={film} onClick={(id) => {
+        this.setState({
+          activeFilmId: id,
+        });
+      }} key={i}/>
+    ));
   }
 }
 
