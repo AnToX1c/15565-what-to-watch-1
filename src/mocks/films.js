@@ -1,8 +1,4 @@
-import React from "react";
-import renderer from "react-test-renderer";
-import Main from "./main";
-
-const mock = [
+export default [
   {
     id: 1,
     title: `Fantastic Beasts: The Crimes of Grindelwald`,
@@ -17,13 +13,15 @@ const mock = [
     id: 3,
     title: `Macbeth`,
     imgsrc: `img/macbeth.jpg`
-  }
+  },
+  {
+    id: 4,
+    title: `Aviator`,
+    imgsrc: `img/aviator.jpg`
+  },
+  {
+    id: 5,
+    title: `We need to talk about Kevin`,
+    imgsrc: `img/we-need-to-talk-about-kevin.jpg`
+  },
 ];
-
-it(`Main page correctly renders`, () => {
-  const tree = renderer
-    .create(<Main films = {mock}/>)
-    .toJSON();
-
-  expect(tree).toMatchSnapshot();
-});

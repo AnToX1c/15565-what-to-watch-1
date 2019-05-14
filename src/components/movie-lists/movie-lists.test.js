@@ -1,6 +1,6 @@
 import React from "react";
 import renderer from "react-test-renderer";
-import Main from "./main";
+import MovieLists from "./movie-lists";
 
 const mock = [
   {
@@ -20,9 +20,9 @@ const mock = [
   }
 ];
 
-it(`Main page correctly renders`, () => {
+it(`MovieLists page correctly renders`, () => {
   const tree = renderer
-    .create(<Main films = {mock}/>)
+    .create(<MovieLists films={mock}/>)
     .toJSON();
 
   expect(tree).toMatchSnapshot();
