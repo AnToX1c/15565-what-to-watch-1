@@ -197,6 +197,17 @@ Array [
             Kids & Family
           </a>
         </li>
+        <li
+          className="catalog__genres-item "
+          onClick={[Function]}
+        >
+          <a
+            className="catalog__genres-link"
+            href="#"
+          >
+            Comedies
+          </a>
+        </li>
       </ul>
       <div
         className="catalog__movies-list"
@@ -279,6 +290,60 @@ Array [
               href="movie-page.html"
             >
               Macbeth
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <video
+            height="175"
+            loop={true}
+            muted={true}
+            poster="img/aviator.jpg"
+            width="280"
+          >
+            <source
+              src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+            />
+          </video>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+            >
+              Aviator
+            </a>
+          </h3>
+        </article>
+        <article
+          className="small-movie-card catalog__movies-card"
+          onMouseEnter={[Function]}
+          onMouseLeave={[Function]}
+        >
+          <video
+            height="175"
+            loop={true}
+            muted={true}
+            poster="img/we-need-to-talk-about-kevin.jpg"
+            width="280"
+          >
+            <source
+              src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+            />
+          </video>
+          <h3
+            className="small-movie-card__title"
+          >
+            <a
+              className="small-movie-card__link"
+              href="movie-page.html"
+            >
+              We need to talk about Kevin
             </a>
           </h3>
         </article>
