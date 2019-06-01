@@ -6,6 +6,7 @@ import MovieLists from "../movie-lists/movie-lists";
 import HeaderMovieCard from "../header-movie-card/header-movie-card";
 import GenresList from "../genres-list/genres-list";
 import Footer from "../footer/footer";
+import getUniqueGenres from "../../modules/selectors";
 import {ActionCreator} from "../../reducer";
 
 class Main extends Component {
@@ -14,7 +15,7 @@ class Main extends Component {
   }
 
   render() {
-    const {films, onGenreClick, getListOfFilms, genre, listOfFilms} = this.props;
+    const {onGenreClick, getListOfFilms, genre, listOfFilms} = this.props;
 
     return <React.Fragment>
       <HeaderMovieCard/>
@@ -24,7 +25,7 @@ class Main extends Component {
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
           <GenresList
-            genres = {[`All genres`, ...this._getUniqueGenres(films)]}
+            genres = {[`All genres`, ...getUniqueGenres()]}
             onClick={(targetGenre) => {
               onGenreClick(targetGenre);
               getListOfFilms(targetGenre);
@@ -45,10 +46,6 @@ class Main extends Component {
       </div>
     </React.Fragment>;
   }
-
-  _getUniqueGenres(films) {
-    return [...new Set(films.map((film)=> film.genre))];
-  }
 }
 
 const mapStateToProps = (state) => ({
@@ -62,12 +59,6 @@ const mapDispatchToProps = {
 };
 
 Main.propTypes = {
-  films: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    title: PropTypes.string.isRequired,
-    imgsrc: PropTypes.string.isRequired,
-    genre: PropTypes.string.isRequired,
-  }).isRequired).isRequired,
   onGenreClick: PropTypes.func.isRequired,
   getListOfFilms: PropTypes.func.isRequired,
   genre: PropTypes.string.isRequired,
