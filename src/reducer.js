@@ -16,7 +16,7 @@ const ActionCreator = {
     } else {
       return {
         type: `GET_MOVIES`,
-        payload: genre
+        payload: initialState.listOfFilms.filter((film) => film.genre === genre)
       };
     }
   }
@@ -28,7 +28,7 @@ const reducer = (state = initialState, action) => {
       genre: action.payload,
     });
     case `GET_MOVIES`: return Object.assign({}, state, {
-      listOfFilms: initialState.listOfFilms.filter((film) => film.genre === action.payload),
+      listOfFilms: action.payload,
     });
     case `SHOW_ALL_MOVIES`: return Object.assign({}, initialState);
   }
