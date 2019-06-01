@@ -47,7 +47,7 @@ class Main extends Component {
   }
 
   _getUniqueGenres(films) {
-    return films.map((film)=> film.genre).filter((value, index, self) => self.indexOf(value) === index);
+    return [...new Set(films.map((film)=> film.genre))];
   }
 }
 
@@ -56,10 +56,10 @@ const mapStateToProps = (state) => ({
   listOfFilms: state.listOfFilms,
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  onGenreClick: (genre) => dispatch(ActionCreator.changeFilterByGenre(genre)),
-  getListOfFilms: (genre) => dispatch(ActionCreator.getFilteredFilmsByGenre(genre)),
-});
+const mapDispatchToProps = {
+  onGenreClick: (genre) => ActionCreator.changeFilterByGenre(genre),
+  getListOfFilms: (genre) => ActionCreator.getFilteredFilmsByGenre(genre),
+};
 
 Main.propTypes = {
   films: PropTypes.arrayOf(PropTypes.shape({
