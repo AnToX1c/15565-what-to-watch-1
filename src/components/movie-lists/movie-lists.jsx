@@ -17,14 +17,16 @@ class MovieLists extends Component {
   render() {
     const {films} = this.props;
     const {activeFilmId} = this.state;
-    return films.map((film, i) => (
-      <SmallMovieCard
-        key={i}
-        film={film}
-        onMouseEnter={this._handleOnMouseEnter}
-        isPlaying={activeFilmId === film.id}
-      />
-    ));
+    return <div className="catalog__movies-list">
+      {films.map((film, i) => (
+        <SmallMovieCard
+          key={i}
+          film={film}
+          onMouseEnter={this._handleOnMouseEnter}
+          isPlaying={activeFilmId === film.id}
+        />
+      ))}
+    </div>;
   }
 
   _handleOnMouseEnter(id) {

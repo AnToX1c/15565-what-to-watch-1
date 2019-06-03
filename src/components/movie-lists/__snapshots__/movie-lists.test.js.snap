@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MovieLists page correctly renders 1`] = `
-Array [
+<div
+  className="catalog__movies-list"
+>
   <article
     className="small-movie-card catalog__movies-card"
     onMouseEnter={[Function]}
@@ -28,7 +30,7 @@ Array [
         Fantastic Beasts: The Crimes of Grindelwald
       </a>
     </h3>
-  </article>,
+  </article>
   <article
     className="small-movie-card catalog__movies-card"
     onMouseEnter={[Function]}
@@ -55,7 +57,7 @@ Array [
         Bohemian Rhapsody
       </a>
     </h3>
-  </article>,
+  </article>
   <article
     className="small-movie-card catalog__movies-card"
     onMouseEnter={[Function]}
@@ -82,6 +84,60 @@ Array [
         Macbeth
       </a>
     </h3>
-  </article>,
-]
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <video
+      height="175"
+      loop={true}
+      muted={true}
+      poster="img/aviator.jpg"
+      width="280"
+    >
+      <source
+        src="https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm"
+      />
+    </video>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page.html"
+      >
+        Aviator
+      </a>
+    </h3>
+  </article>
+  <article
+    className="small-movie-card catalog__movies-card"
+    onMouseEnter={[Function]}
+    onMouseLeave={[Function]}
+  >
+    <video
+      height="175"
+      loop={true}
+      muted={true}
+      poster="img/we-need-to-talk-about-kevin.jpg"
+      width="280"
+    >
+      <source
+        src="https://download.blender.org/durian/trailer/sintel_trailer-480p.mp4"
+      />
+    </video>
+    <h3
+      className="small-movie-card__title"
+    >
+      <a
+        className="small-movie-card__link"
+        href="movie-page.html"
+      >
+        We need to talk about Kevin
+      </a>
+    </h3>
+  </article>
+</div>
 `;
