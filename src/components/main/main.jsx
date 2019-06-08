@@ -6,7 +6,7 @@ import MovieLists from "../movie-lists/movie-lists";
 import HeaderMovieCard from "../header-movie-card/header-movie-card";
 import GenresList from "../genres-list/genres-list";
 import Footer from "../footer/footer";
-import getUniqueGenres from "../../modules/selectors";
+import {getUniqueGenresSelector, getStateGenreSelector, getStateListOfFilmsSelector} from "../../modules/selectors";
 import {ActionCreator} from "../../reducer";
 
 class Main extends Component {
@@ -25,7 +25,7 @@ class Main extends Component {
           <h2 className="catalog__title visually-hidden">Catalog</h2>
 
           <GenresList
-            genres = {[`All genres`, ...getUniqueGenres()]}
+            genres = {[`All genres`, ...getUniqueGenresSelector()]}
             onClick={(targetGenre) => {
               onGenreClick(targetGenre);
               getListOfFilms(targetGenre);
@@ -49,8 +49,8 @@ class Main extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  genre: state.genre,
-  listOfFilms: state.listOfFilms,
+  genre: getStateGenreSelector(state),
+  listOfFilms: getStateListOfFilmsSelector(state),
 });
 
 const mapDispatchToProps = {
