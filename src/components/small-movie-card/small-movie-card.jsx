@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import VideoPlayer from "../video-player/video-player";
 
-const SmallMovieCard = ({film, isPlaying, onMouseEnter}) => (
+const SmallMovieCard = ({film, activeFilm, onMouseEnter}) => (
   <article className="small-movie-card catalog__movies-card"
     onMouseEnter={() => onMouseEnter(film.id)}
     onMouseLeave={() => onMouseEnter(null)}
@@ -10,7 +10,7 @@ const SmallMovieCard = ({film, isPlaying, onMouseEnter}) => (
     <VideoPlayer
       imgsrc={film.imgsrc}
       previewsrc={film.previewsrc}
-      isPlaying={isPlaying}
+      isPlaying={activeFilm === film.id}
       muted={true}
     />
     <h3 className="small-movie-card__title">
@@ -27,7 +27,10 @@ SmallMovieCard.propTypes = {
     previewsrc: PropTypes.string.isRequired,
   }).isRequired,
   onMouseEnter: PropTypes.func.isRequired,
-  isPlaying: PropTypes.bool.isRequired,
+  activeFilm: PropTypes.oneOfType([
+    PropTypes.number.isRequired,
+    PropTypes.instanceOf(null).isRequired,
+  ])
 };
 
 export default React.memo(SmallMovieCard);
