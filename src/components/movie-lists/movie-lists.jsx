@@ -1,51 +1,20 @@
-import React, {Component} from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import SmallMovieCard from "../small-movie-card/small-movie-card";
+import withVideoPlayer from "../../hocs/with-video-player";
 
-class MovieLists extends Component {
-  constructor(props) {
-    super(props);
+const MovieCardWithVideoPlayer = withVideoPlayer(SmallMovieCard);
 
-    this.state = {
-      activeFilmId: null,
-    };
-
-    this._timeoutId = null;
-    this._handleOnMouseEnter = this._handleOnMouseEnter.bind(this);
-  }
-
-  render() {
-    const {films} = this.props;
-    const {activeFilmId} = this.state;
-    return <div className="catalog__movies-list">
-      {films.map((film, i) => (
-        <SmallMovieCard
-          key={i}
-          film={film}
-          onMouseEnter={this._handleOnMouseEnter}
-          isPlaying={activeFilmId === film.id}
-        />
-      ))}
-    </div>;
-  }
-
-  _handleOnMouseEnter(id) {
-    if (id === null) {
-      this.setState({
-        activeFilmId: id,
-      });
-      if (this._timeoutId) {
-        clearTimeout(this._timeoutId);
-      }
-    } else {
-      this._timeoutId = setTimeout(() => {
-        this.setState({
-          activeFilmId: id,
-        });
-      }, 1000);
-    }
-  }
-}
+const MovieLists = ({films}) => (
+  <div className="catalog__movies-list">
+    {films.map((film, i) => (
+      <MovieCardWithVideoPlayer
+        key={i}
+        film={film}
+      />
+    ))}
+  </div>
+);
 
 MovieLists.propTypes = {
   films: PropTypes.arrayOf(PropTypes.shape({

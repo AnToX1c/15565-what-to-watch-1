@@ -54,8 +54,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = {
-  onGenreClick: (genre) => ActionCreator.changeFilterByGenre(genre),
-  getListOfFilms: (genre) => ActionCreator.getFilteredFilmsByGenre(genre),
+  onGenreClick: ActionCreator.changeFilterByGenre,
+  getListOfFilms: ActionCreator.getFilteredFilmsByGenre,
 };
 
 Main.propTypes = {

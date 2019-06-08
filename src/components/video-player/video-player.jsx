@@ -6,10 +6,6 @@ class VideoPlayer extends Component {
     super(props);
 
     this._videoRef = createRef();
-
-    this.state = {
-      isPlaying: props.isPlaying,
-    };
   }
 
   render() {
